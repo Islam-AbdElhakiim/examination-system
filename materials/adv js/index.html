@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 400px;
+            display: none;
+            
+        }
+        table,th,td{
+            border: 2px solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>show users</h1>
+    <button onclick="GetUsers()">get users</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>menna</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>menna</td>
+            </tr> -->
+        </tbody>
+    </table>
+    <!-- <emplyee>
+        <name>menna</name>
+        <age>25</age>
+        <salary>2000</salary>
+    </emplyee>
+    <emplyee>
+        <name>hamada</name>
+        <age>25</age>
+        <salary>2000</salary>
+    </emplyee>
+    
+    <emplyee>
+    </emplyee> -->
+
+
+    <script>
+        //Json
+        //   [ {
+        //         "name":"menna",
+        //         "age":"25",
+        //         "salary":"2000"
+        //     }
+        //     ,
+        //     {
+        //         "name":"hamada",
+        //         "age":"26",
+        //         "salary":"300"
+        //     }
+        //     ,{
+        //         "name":"menna",
+        //         "age":25,
+        //         "salary":"2000"
+        //     }
+        // ]
+
+        //     var jsonObject = JSON.stringify(jsobject);
+
+        //    var jsObject =  JSON.parse(jsonObject);
+        // var date = new Date("11/10/1994");
+        // //  document.cookie = "fname=menna;expires="+date;
+        // // document.cookie = "lname=shata";
+
+        // console.log(document.cookie);
+        //     function setCookie(key,value,date){
+        //         document.cookie = key+"="+value+";expires="+date;
+
+        //     }
+        //     setCookie("salary","2000",new Date("2/1/2023"));
+        //     setCookie("fname","menna",new Date("2/1/2023"));
+        //     function getCookie(key){
+        //         var res = "not found";
+        //         var data = document.cookie;
+        //         var arr = data.split("; ");
+        //         arr.forEach(function(el){
+        //           var keyAndValue =  el.split("=");
+        //           if(keyAndValue[0]===key){
+        //               res = keyAndValue[1];
+        //           }
+
+        //         })
+        //         return res;
+
+        //     }
+        //    console.log(getCookie("aaa")); 
+        ////////////////////////Ajax//////////////
+        // var xhr = new XMLHttpRequest();
+        //     xhr.open("get","hello.txt");
+        //     xhr.send();
+        //     xhr.addEventListener("readystatechange",function(){
+        //       //console.log(xhr.readyState);
+        //         if(xhr.readyState===4){
+        //         if(xhr.status===200){
+
+        //             console.log(xhr.response);
+        //         }
+
+        //     }
+        //     })
+        var xhrUsers =  new XMLHttpRequest();
+        function GetUsers() {
+          
+            xhrUsers.open("get", "https://jsonplaceholder.typicode.com/users");
+            xhrUsers.send();
+
+        }
+
+        xhrUsers.addEventListener("readystatechange", function () {
+            if (xhrUsers.readyState === 4) {
+                if (xhrUsers.status === 200) {
+                    jsonObjects = xhrUsers.response;
+                    ///parsing////
+                     var users = JSON.parse(jsonObjects);
+                   // console.log(users);
+                   usersUi(users);
+
+                }
+            }
+        })
+
+function usersUi(arr){
+    var tbody = document.getElementsByTagName("tbody")[0];
+    arr.forEach(function(el) {
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>"+el.id+"</td><td>"+el.name+"</td>"
+        tbody.append(tr);
+
+        
+    });
+    document.querySelector("table").style.display = "table";
+
+}
+
+// usersUi([{id:1,name:"menna"}]);
+
+
+    </script>
+
+</body>
+
+</html>

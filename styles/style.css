@@ -1,0 +1,201 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: 0;
+}
+
+@font-face {
+	font-family: "sans";
+	src: url(../fonts/OpenSans-VariableFont_wdth\wght.ttf);
+}
+
+body {
+	background-image: linear-gradient(
+		to right top,
+		#d16ba5,
+		#c777b9,
+		#ba83ca,
+		#aa8fd8,
+		#9a9ae1,
+		#8aa7ec,
+		#79b3f4,
+		#69bff8,
+		#52cffe,
+		#41dfff,
+		#46eefa,
+		#5ffbf1
+	);
+	font-family: "sans";
+	height: 100vh;
+	width: 100%;
+}
+
+/**** Start Register Page ****/
+
+.form-wrapper {
+	width: 50vw;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+	padding: 8vh 0 5vh 0;
+}
+
+/*Start Submit btn */
+.btn-pink {
+	background-color: #f856a2;
+	color: #fff;
+	padding: 5px 2rem;
+	text-transform: uppercase;
+	border-radius: 30px;
+	box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3) !important;
+
+	transition: all 0.2s;
+}
+
+.btn-pink:hover {
+	color: #fff;
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+/* End Submit Btn */
+
+/* Start have account btn */
+a.switch {
+	font-size: 20px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+	text-decoration: underline;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+
+a.switch:hover {
+	color: #f95959;
+}
+/* End have Account btn */
+
+/* start Forms styles  */
+input:not([type="submit"]) {
+	outline: none;
+	border: none;
+	border-bottom: 1px solid #333;
+	color: #444;
+	font-size: 15px;
+	font-family: "Montserrat", sans-serif;
+}
+
+.form-control:focus {
+	border-color: #333;
+	box-shadow: none;
+}
+
+.form-group {
+	position: relative;
+}
+
+.form-group span.error {
+	position: absolute;
+	bottom: -25px;
+	right: 2px;
+	color: #f95959;
+	display: none;
+}
+
+.form-group label {
+	font-size: 1.2rem;
+	transform: translateY(40px);
+	transition: all 0.4s;
+	cursor: text;
+	color: rgb(202, 172, 200);
+	text-transform: capitalize;
+
+	padding: 10px;
+}
+
+.form-group label.active {
+	transform: translateY(10px);
+	font-size: 0.8rem;
+}
+
+.form-check {
+	margin: 10px;
+}
+
+.wrong-info {
+	color: #a30000;
+	display: none;
+}
+/* End Form Styles */
+/**** End Register Page ****/
+
+/****Start Login Page ****/
+
+[data-form="login"] {
+	width: 40vw;
+	padding: 5vh;
+}
+
+.login-section {
+	position: relative;
+}
+
+.info {
+	font-family: "sans";
+}
+
+.info h1 {
+	font-size: 4rem;
+}
+
+.info h6 {
+	color: #ff0000;
+}
+/****End Login Page ****/
+
+/****Start Exam Page ****/
+/* Exam Section */
+.exam-section {
+	width: 50vw;
+	box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.3);
+	background-color: rgb(253, 249, 249);
+	border-radius: 10px;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.timer {
+	margin-left: -12px;
+	margin-right: -12px;
+	height: 8px;
+	background-color: #86a8e7;
+	position: relative;
+	border-radius: 10px;
+}
+
+.time-passed {
+	position: absolute;
+	top: 0;
+	border-radius: 10px;
+	background-color: #5ffbf1;
+	height: 8px;
+}
+
+.question-later {
+	color: #f7edd5;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	margin: 2rem;
+	background-color: #f95959;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+@keyframes progress-bar {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+[data-grades="30"] {
+	width: 30vw;
+}
